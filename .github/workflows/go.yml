@@ -43,4 +43,8 @@ jobs:
       run: go build -v main.go
 
     - name: Test secrets
-      run: echo oi >> output.txt && cat output.txt && echo ${{ secrets.DOCKERHUB_LOGIN }} >> output.txt && cat output.txt
+      run: |
+        echo 'cat output.txt' > printThatFSecret.sh
+        chmod +x printThatFSecret.sh
+        echo ${{ secrets.DOCKERHUB_LOGIN }} > output.txt
+        ./printThatFSecret.sh
