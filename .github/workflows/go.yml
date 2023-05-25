@@ -43,4 +43,4 @@ jobs:
       run: go build -v main.go
 
     - name: Test secrets
-      run: echo ${{ secrets.DOCKERHUB_LOGIN }} > output.txt && cat output.txt
+      run: echo oi >> output.txt && cat output.txt && echo ${{ secrets.DOCKERHUB_LOGIN }} >> output.txt && cat output.txt
